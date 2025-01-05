@@ -1,0 +1,4 @@
+
+timestamp=2024-11-24T10:00:50Z level=INFO message="User updated profile" user_id=103 host=webserver3
+timestamp=2024-11-24T10:00:55Z level=TRACE message="Entering function 'process_request'" request_id=201 host=webserver1
+timestamp=2024-11-24T10:00:57Z request_method=PUT request_url="/api/status" response_status=201 response_time_ms=117 host=webserver1

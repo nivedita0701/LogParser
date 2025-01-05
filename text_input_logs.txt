@@ -1,0 +1,23 @@
+# Valid APM logs
+timestamp=2024-11-30T10:00:00Z metric=cpu_usage_percent host=webserver1 value=85
+timestamp=2024-11-30T10:01:00Z metric=cpu_usage_percent host=webserver1 value=75
+timestamp=2024-11-30T10:02:00Z metric=memory_usage_percent host=webserver1 value=50
+timestamp=2024-11-30T10:03:00Z metric=disk_usage_percent host=webserver1 value=90
+
+# Valid Application logs
+timestamp=2024-11-30T11:00:00Z level=INFO message="System started" host=webserver1
+timestamp=2024-11-30T11:01:00Z level=ERROR message="Disk failure detected" host=webserver2
+timestamp=2024-11-30T11:02:00Z level=WARNING message="High CPU usage" host=webserver1
+timestamp=2024-11-30T11:03:00Z level=DEBUG message="Debugging network issue" host=webserver2
+
+# Valid Request logs
+timestamp=2024-11-30T12:00:00Z request_method=GET request_url="/api/status" response_status=200 response_time_ms=120 host=webserver1
+timestamp=2024-11-30T12:01:00Z request_method=POST request_url="/api/update" response_status=404 response_time_ms=200 host=webserver1
+timestamp=2024-11-30T12:02:00Z request_method=PUT request_url="/api/status" response_status=500 response_time_ms=300 host=webserver1
+timestamp=2024-11-30T12:03:00Z request_method=DELETE request_url="/api/delete" response_status=204 response_time_ms=50 host=webserver2
+
+# Malformed logs
+timestamp=2024-11-30T13:00:00Z metric=cpu_usage_percent value= # Missing value
+timestamp=2024-11-30T13:01:00Z level=INFO # Missing message
+timestamp=2024-11-30T13:02:00Z request_method=POST response_status=200 # Missing URL and response_time_ms
+timestamp=2024-11-30T13:03:00Z random_field=random_value

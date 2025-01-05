@@ -1,0 +1,34 @@
+digraph LogParser_UML {
+	fontsize=10 rankdir=TB
+	LogProcessor [label="
+{LogProcessor|
+- filePath: String\l|
++ main(args: String[]): void\l}
+" shape=record]
+	APMLogParser [label="
+{APMLogParser|
+- metrics: Map\l|
++ aggregateAndWrite(logs: List, outputFile: String): void\l}
+" shape=record]
+	ApplicationLogParser [label="
+{ApplicationLogParser|
+- severityCounts: Map\l|
++ aggregateAndWrite(logs: List, outputFile: String): void\l}
+" shape=record]
+	RequestLogParser [label="
+{RequestLogParser|
+- responseTimes: Map\l
+- statusCodes: Map\l|
++ aggregateAndWrite(logs: List, outputFile: String): void\l}
+" shape=record]
+	Utils [label="
+{Utils|
++ readFileAsString(filePath: String): String\l}
+" shape=record]
+	LogProcessor -> APMLogParser [arrowhead=open style=dashed]
+	LogProcessor -> ApplicationLogParser [arrowhead=open style=dashed]
+	LogProcessor -> RequestLogParser [arrowhead=open style=dashed]
+	APMLogParser -> Utils [arrowhead=open style=dashed]
+	ApplicationLogParser -> Utils [arrowhead=open style=dashed]
+	RequestLogParser -> Utils [arrowhead=open style=dashed]
+}
